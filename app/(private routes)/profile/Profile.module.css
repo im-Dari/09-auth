@@ -1,0 +1,78 @@
+.mainContent {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #f4f7f6;
+  min-height: calc(100vh - 160px);
+}
+
+.profileCard {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+
+.formTitle {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 700;
+}
+
+.editProfileButton {
+  color: #0056b3;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: 1px solid #0056b3;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.editProfileButton:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.avatarWrapper {
+  margin: 0 auto 25px;
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profileInfo {
+  text-align: left;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.profileInfo p {
+  margin: 12px 0;
+  font-size: 16px;
+  color: #444;
+  display: flex;
+  justify-content: space-between;
+}
