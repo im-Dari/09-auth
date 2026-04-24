@@ -46,6 +46,18 @@
   width: 100%;
 }
 
+.emailWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.emailWrapper label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222;
+}
+
 .usernameWrapper label {
   font-weight: 600;
   margin-bottom: 8px;

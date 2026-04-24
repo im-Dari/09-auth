@@ -15,8 +15,10 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
     const verify = async () => {
       setLoading(true);
       try {
-        const user = await checkSession();
-        if (user) {
+        const sessionData = await checkSession();
+        if (sessionData) {
+          const { getMe } = await import('@/lib/api/clientApi');
+          const user = await getMe();
           setUser(user);
         } else {
           clearIsAuthenticated();
@@ -51,11 +53,9 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
 
   if (loading) {
     const isAuthRoute = pathname.startsWith('/sign-in') || pathname.startsWith('/sign-up');
-    // Show auth forms immediately while loading
     if (isAuthRoute) {
       return <>{children}</>;
     }
-    // Show loading state only for private routes
     const isPrivateRoute = pathname.startsWith('/profile') || pathname.startsWith('/notes');
     if (isPrivateRoute) {
       return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>Loading...</div>;

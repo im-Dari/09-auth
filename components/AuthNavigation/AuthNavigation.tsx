@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import css from './AuthNavigation.module.css';
 
 export default function AuthNavigation() {
-  const { isAuthenticated, clearIsAuthenticated } = useAuthStore();
+  const { isAuthenticated, clearIsAuthenticated, user } = useAuthStore();
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -24,6 +24,9 @@ export default function AuthNavigation() {
     <>
       {isAuthenticated ? (
         <>
+          <li className={css.navigationItem}>
+            <span className={css.userInfo}>{user?.email}</span>
+          </li>
           <li className={css.navigationItem}>
             <Link href="/notes" className={css.navigationLink}>Notes</Link>
           </li>

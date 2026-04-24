@@ -1,10 +1,12 @@
 import { NextResponse, type NextRequest } from 'next/server';
+import { cookies } from 'next/headers';
 import { parse } from 'cookie';
 import { checkSession } from './lib/api/serverApi';
 
 export async function proxy(req: NextRequest) {
-  const accessToken = req.cookies.get('accessToken');
-  const refreshToken = req.cookies.get('refreshToken');
+  const cookieStore = await cookies();
+  const accessToken = cookieStore.get('accessToken');
+  const refreshToken = cookieStore.get('refreshToken');
 
   const isAuthPage =
     req.nextUrl.pathname.startsWith('/sign-in') ||

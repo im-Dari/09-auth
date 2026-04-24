@@ -13,6 +13,7 @@ export default function EditProfilePage() {
   const { setUser } = useAuthStore();
 
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [avatarUrl, setAvatarUrl] = useState('');
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -22,6 +23,7 @@ export default function EditProfilePage() {
     getMe()
       .then((profile) => {
         setUsername(profile.username ?? '');
+        setEmail(profile.email ?? '');
         setAvatarUrl(profile.avatar ?? '');
       })
       .catch((error) => {
@@ -83,6 +85,17 @@ export default function EditProfilePage() {
         <AvatarPicker profilePhotoUrl={avatarUrl} onChangePhoto={handleAvatarChange} />
 
         <form className={css.profileInfo} onSubmit={handleSubmit}>
+          <div className={css.emailWrapper}>
+            <label htmlFor="email">Email:</label>
+            <input
+              id="email"
+              type="email"
+              className={css.input}
+              value={email}
+              disabled
+              readOnly
+            />
+          </div>
           <div className={css.usernameWrapper}>
             <label htmlFor="username">Username:</label>
             <input
